@@ -1,11 +1,15 @@
 #ifndef _RHEOSTAT_H_
 #define _RHEOSTAT_H_
 
-class rheostate
+#include <Arduino.h>
+
+class rheostat
 {
 public:
+    rheostat();
+    ~rheostat();
 
-private:
+    int read();
 
 }
 
