@@ -2,24 +2,24 @@
 
 sandboxCtrl::sandboxCtrl()
 {
-    m_dSwitch = digitalSwitch();
-    m_expanPort = expanPort();
-    m_lightSensor = lightSensor();
-    m_mic = microphone();
-    m_pushButt = pushButt();
-    m_rheostat = rheostat();
-    m_therm = thermometer();
+//    m_dSwitch = digitalSwitch();
+//    m_expanPort = expanPort();
+//    m_lightSensor = lightSensor();
+//    m_mic = microphone();
+//    m_pushButt = pushButt();
+//    m_rheostat = rheostat();
+//    m_therm = thermometer();
 
     //Make all the color leds
-    for(int i = 9; i < 12; i++)
-        m_cLeds.push_back(colorLed(i));
-
-    //Make leds 4 thru 8
-    for(int i = 4; i < 9; i++)
-        m_leds.push_back(led(i));
-
-    //Make led 13
-    m_leds.push_back(led(13));
+//    for(int i = 9; i < 12; i++)
+//        m_cLeds.push_back(colorLed(i));
+//
+//    //Make leds 4 thru 8
+//    for(int i = 4; i < 9; i++)
+//        m_leds.push_back(led(i));
+//
+//    //Make led 13
+//    m_leds.push_back(led(13));
 }
 
 sandboxCtrl::~sandboxCtrl()
