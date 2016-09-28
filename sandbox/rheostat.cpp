@@ -7,7 +7,7 @@ rheostat::rheostat()
     pinMode(RHEOSTAT_PIN, INPUT);
 }
 
-rheostat::~rheostate()
+rheostat::~rheostat()
 {
 
 }

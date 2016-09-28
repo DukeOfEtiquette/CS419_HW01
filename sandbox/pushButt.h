@@ -11,6 +11,6 @@ public:
 
     int getState();
 
-}
+};
 
 #endif

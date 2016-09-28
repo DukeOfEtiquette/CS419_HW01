@@ -20,23 +20,23 @@ void colorLed::set(int val)
     else if(val < 0)
         val = 0;
 
-    analogWrite(m_pin, val);
+    digitalWrite(m_pin, val);
 }
 
 int colorLed::read()
 {
-    return analogRead(m_pin);
+    return digitalRead(m_pin);
 }
 
-void colorLed::add(int val);
+void colorLed::add(int val)
 {
     int curVal = read();
 
     //Don't let the value exceed it's maximum or go below zero
     if(val + curVal > 255)
-        analogWrite(m_pin, 255);
+        digitalWrite(m_pin, 255);
     else if(val + curVal < 0)
-        analogWrite(m_pin, 0);
+        digitalWrite(m_pin, 0);
     else
-        analogWrite(m_pin, val + curVal);
+        digitalWrite(m_pin, val + curVal);
 }
