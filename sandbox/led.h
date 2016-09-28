@@ -15,6 +15,6 @@ public:
     void off();
     int getState();
 
-}
+};
 
 #endif

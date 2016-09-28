@@ -13,7 +13,7 @@ public:
     float getVoltage();
     float getCelsius();
     float getFahrenheit();
-}
+};
 
 #endif
 
