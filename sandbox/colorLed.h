@@ -10,6 +10,7 @@ public:
     ~colorLed();
 
     int m_pin;
+    int m_colorVal;
 
     void set(int);
     int read();
