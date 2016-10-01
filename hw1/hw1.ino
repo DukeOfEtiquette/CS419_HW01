@@ -23,27 +23,58 @@ void setup(){
 
   //ColorLED Read/Add
   test.m_led_r.set(0); //Set red to 0
-  Serial.println("RedLED should be 0 -> " + test.m_led_r.read());
+  part1 = "RedLED should be 0 -> ";
+  part1.concat(test.m_led_r.read());
+  Serial.println(part1);
+
   test.m_led_r.add(100); //Set red to 100
-  Serial.println("RedLED should be 100 -> " + test.m_led_r.read());
+  part1 = "RedLED should be 100 -> ";
+  part1.concat(test.m_led_r.read());
+  Serial.println(part1);
+
   test.m_led_r.add(150); //Set red to 250
-  Serial.println("RedLED should be 250 -> " + test.m_led_r.read());
+  part1 = "RedLED should be 250 -> ";
+  part1.concat(test.m_led_r.read());
+  Serial.println(part1); 
+
   test.m_led_r.add(99); //Add 99 to 250, should result in 255
-  Serial.println("RedLED should be 255 -> " + test.m_led_r.read());
+  part1 = "RedLED should be 255 -> ";
+  part1.concat(test.m_led_r.read());
+  Serial.println(part1); 
+
   test.m_led_r.add(-100); //Subtract 100, should be 155 now
-  Serial.println("RedLED should be 155 -> " + test.m_led_r.read());
+  part1 = "RedLED should be 155 -> ";
+  part1.concat(test.m_led_r.read());
+  Serial.println(part1);
+
   test.m_led_r.add(-1000); //Should now be 0
-  Serial.println("RedLED should be 0 -> " + test.m_led_r.read());
+  part1 = "RedLED should be 0 -> ";
+  part1.concat(test.m_led_r.read());
+  Serial.println(part1);
 
   int state;
 
   //LED getState
+<<<<<<< HEAD
   test.m_led4.on(); //Turn led on
   state = test.m_led4.getState();
   Serial.println("The led state of 4 should now be 1 (HIGH/on) -> " + state);
   test.m_led4.off();
   state = test.m_led4.getState();  
   Serial.println("The led state of 4 should now be 0 (LOW/off) -> " + state);
+=======
+  m_led4.on(); //Turn led on
+  state = m_led4.getState();
+  part1 = "The led state of 4 should now be 1 (HIGH/on) -> ";
+  part1.concat(state);
+  Serial.println(part1);
+
+  m_led4.off();
+  state = m_led4.getState();  
+  part1 = "The led state of 4 should now be 0 (LOW/off) -> ";
+  part1.concat(state);
+  Serial.println();
+>>>>>>> 663dee47fa87eea42224fb42e8164c9c4a7dea3c
 }
 
 void loop(){
