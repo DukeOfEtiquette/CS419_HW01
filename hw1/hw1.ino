@@ -55,101 +55,108 @@ void setup(){
   int state;
 
   //LED getState
-  m_led4.on(); //Turn led on
-  state = m_led4.getState();
+  test.m_led4.on(); //Turn led on
+  state = test.m_led4.getState();
+  Serial.println("The led state of 4 should now be 1 (HIGH/on) -> " + state);
+  test.m_led4.off();
+  state = test.m_led4.getState();  
+  Serial.println("The led state of 4 should now be 0 (LOW/off) -> " + state);
+  test.m_led4.on(); //Turn led on
+  state = test.m_led4.getState();
   part1 = "The led state of 4 should now be 1 (HIGH/on) -> ";
   part1.concat(state);
   Serial.println(part1);
 
-  m_led4.off();
-  state = m_led4.getState();  
+  test.m_led4.off();
+  state = test.m_led4.getState();  
   part1 = "The led state of 4 should now be 0 (LOW/off) -> ";
   part1.concat(state);
   Serial.println();
+
 }
 
 void loop(){
-  //RHEOSTAT:
-  //In this test the rheostat controls the motor speed.
-  //Serial.println(test.m_rheostat.read());
-  test.m_expanPort.setSpeed(test.m_rheostat.read());
-
-  //Digital switch: if the switch is on the thermometer controls
-  //the motor, otherwise the light sensor controls the motor.
-  if(test.m_dSwitch.getState()){
-    //Serial.println(test.m_therm.readTemp());
-    test.m_expanPort.setSpeed(test.m_therm.readTemp());
-  }else {
-    test.m_expanPort.setSpeed(test.m_lightSensor.readSensor());
-  }
-  
-  //PUSHBUTT:
-  if(test.m_pushButt.getState() == 1){
-    val++;
-    if(val > 3){
-      val = 0;
-    }
-  }
-  Serial.println(val);
-  if(val == 1){
-    test.m_led_r.set(255);
-    test.m_led_g.set(0);
-    test.m_led_b.set(0);
-    delay(100);
-  }
-  else if(val == 2){
-    test.m_led_r.set(0);
-    test.m_led_g.set(255);
-    test.m_led_b.set(0);
-    delay(100);
-  }
-  else if(val == 3){
-    test.m_led_r.set(0);
-    test.m_led_g.set(0);
-    test.m_led_b.set(255);
-    delay(100);
-  }
-
-  //microphone
-  Serial.println(test.m_mic.read());
-  if(test.m_mic.read() > 0 && test.m_mic.read() < 200){
-    test.m_led4.on();
-    test.m_led4.off();
-  }else if(test.m_mic.read() > 200 && test.m_mic.read() < 400){
-    test.m_led4.on();
-    test.m_led5.on();
-    test.m_led5.off();
-    test.m_led4.off();
-  }else if(test.m_mic.read() > 400 && test.m_mic.read() < 600){
-    test.m_led4.on();
-    test.m_led5.on();
-    test.m_led6.on();
-    test.m_led6.off();
-    test.m_led5.off();
-    test.m_led4.off();
-  }else if(test.m_mic.read() > 600 && test.m_mic.read() < 800){
-    test.m_led4.on();
-    test.m_led5.on();
-    test.m_led6.on();
-    test.m_led7.on();
-    test.m_led7.off();
-    test.m_led6.off();
-    test.m_led5.off();
-    test.m_led4.off();
-  }else if(test.m_mic.read() > 800 && test.m_mic.read() < 1000){
-    test.m_led4.on();
-    test.m_led5.on();
-    test.m_led6.on();
-    test.m_led7.on();
-    test.m_led8.on();
-    test.m_led8.off();
-    test.m_led7.off();
-    test.m_led6.off();
-    test.m_led5.off();
-    test.m_led4.off();
-  }else if(test.m_mic.read() > 1000){
-    test.m_led13.on();
-    test.m_led13.off();
-  }
-
+//  //RHEOSTAT:
+//  //In this test the rheostat controls the motor speed.
+//  //Serial.println(test.m_rheostat.read());
+//  test.m_expanPort.setSpeed(test.m_rheostat.read());
+//
+//  //Digital switch: if the switch is on the thermometer controls
+//  //the motor, otherwise the light sensor controls the motor.
+//  if(test.m_dSwitch.getState()){
+//    //Serial.println(test.m_therm.readTemp());
+//    test.m_expanPort.setSpeed(test.m_therm.readTemp());
+//  }else {
+//    test.m_expanPort.setSpeed(test.m_lightSensor.readSensor());
+//  }
+//  
+//  //PUSHBUTT:
+//  if(test.m_pushButt.getState() == 1){
+//    val++;
+//    if(val > 3){
+//      val = 0;
+//    }
+//  }
+//  Serial.println(val);
+//  if(val == 1){
+//    test.m_led_r.set(255);
+//    test.m_led_g.set(0);
+//    test.m_led_b.set(0);
+//    delay(100);
+//  }
+//  else if(val == 2){
+//    test.m_led_r.set(0);
+//    test.m_led_g.set(255);
+//    test.m_led_b.set(0);
+//    delay(100);
+//  }
+//  else if(val == 3){
+//    test.m_led_r.set(0);
+//    test.m_led_g.set(0);
+//    test.m_led_b.set(255);
+//    delay(100);
+//  }
+//
+//  //microphone
+//  Serial.println(test.m_mic.read());
+//  if(test.m_mic.read() > 0 && test.m_mic.read() < 200){
+//    test.m_led4.on();
+//    test.m_led4.off();
+//  }else if(test.m_mic.read() > 200 && test.m_mic.read() < 400){
+//    test.m_led4.on();
+//    test.m_led5.on();
+//    test.m_led5.off();
+//    test.m_led4.off();
+//  }else if(test.m_mic.read() > 400 && test.m_mic.read() < 600){
+//    test.m_led4.on();
+//    test.m_led5.on();
+//    test.m_led6.on();
+//    test.m_led6.off();
+//    test.m_led5.off();
+//    test.m_led4.off();
+//  }else if(test.m_mic.read() > 600 && test.m_mic.read() < 800){
+//    test.m_led4.on();
+//    test.m_led5.on();
+//    test.m_led6.on();
+//    test.m_led7.on();
+//    test.m_led7.off();
+//    test.m_led6.off();
+//    test.m_led5.off();
+//    test.m_led4.off();
+//  }else if(test.m_mic.read() > 800 && test.m_mic.read() < 1000){
+//    test.m_led4.on();
+//    test.m_led5.on();
+//    test.m_led6.on();
+//    test.m_led7.on();
+//    test.m_led8.on();
+//    test.m_led8.off();
+//    test.m_led7.off();
+//    test.m_led6.off();
+//    test.m_led5.off();
+//    test.m_led4.off();
+//  }else if(test.m_mic.read() > 1000){
+//    test.m_led13.on();
+//    test.m_led13.off();
+//  }
+//
 }
