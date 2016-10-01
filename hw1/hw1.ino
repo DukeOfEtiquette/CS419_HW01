@@ -30,6 +30,10 @@ void setup(){
   Serial.println("RedLED should be 250 -> " + test.m_led_r.read());
   test.m_led_r.add(99); //Add 99 to 250, should result in 255
   Serial.println("RedLED should be 255 -> " + test.m_led_r.read());
+  test.m_led_r.add(-100); //Subtract 100, should be 155 now
+  Serial.println("RedLED should be 155 -> " + test.m_led_r.read());
+  test.m_led_r.add(-1000); //Should now be 0
+  Serial.println("RedLED should be 0 -> " + test.m_led_r.read());
 
   int state;
 
