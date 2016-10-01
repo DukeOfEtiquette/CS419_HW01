@@ -55,26 +55,24 @@ void setup(){
   int state;
 
   //LED getState
-<<<<<<< HEAD
   test.m_led4.on(); //Turn led on
   state = test.m_led4.getState();
   Serial.println("The led state of 4 should now be 1 (HIGH/on) -> " + state);
   test.m_led4.off();
   state = test.m_led4.getState();  
   Serial.println("The led state of 4 should now be 0 (LOW/off) -> " + state);
-=======
-  m_led4.on(); //Turn led on
-  state = m_led4.getState();
+  test.m_led4.on(); //Turn led on
+  state = test.m_led4.getState();
   part1 = "The led state of 4 should now be 1 (HIGH/on) -> ";
   part1.concat(state);
   Serial.println(part1);
 
-  m_led4.off();
-  state = m_led4.getState();  
+  test.m_led4.off();
+  state = test.m_led4.getState();  
   part1 = "The led state of 4 should now be 0 (LOW/off) -> ";
   part1.concat(state);
   Serial.println();
->>>>>>> 663dee47fa87eea42224fb42e8164c9c4a7dea3c
+
 }
 
 void loop(){
