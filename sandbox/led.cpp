@@ -24,8 +24,5 @@ void led::off()
 
 int led::getState()
 {
-    if(digitalRead(m_pin) == HIGH)
-        return 1;
-    else
-        return 0;
+    return digitalRead(m_pin);
 }
