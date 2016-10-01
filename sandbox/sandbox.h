@@ -31,6 +31,7 @@ public:
     led m_led6 = led(6);
     led m_led7 = led(7);
     led m_led8 = led(8);
+    led m_led13 = led(13);
 
     colorLed m_led_r = colorLed(9);
     colorLed m_led_g = colorLed(10);
