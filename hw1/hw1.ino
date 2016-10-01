@@ -1,5 +1,9 @@
 #include <sandbox.h>
 
+
+sandbox test;
+int val = 0;
+
 void setup(){
   Serial.begin(57600);
   sandbox test;
@@ -16,10 +20,27 @@ void setup(){
   Serial.println(part2 + test.m_therm.getVoltage() + part3);
   Serial.println(part4 + test.m_therm.getCelsius() + part5);
   Serial.println(part6 + test.m_therm.getFahrenheit() + part7);
-}
 
-sandbox test;
-int val = 0;
+  //ColorLED Read/Add
+  test.m_led_r.set(0); //Set red to 0
+  Serial.println("RedLED should be 0 -> " + test.m_led_r.read());
+  test.m_led_r.add(100); //Set red to 100
+  Serial.println("RedLED should be 100 -> " + test.m_led_r.read());
+  test.m_led_r.add(150); //Set red to 250
+  Serial.println("RedLED should be 250 -> " + test.m_led_r.read());
+  test.m_led_r.add(99); //Add 99 to 250, should result in 255
+  Serial.println("RedLED should be 255 -> " + test.m_led_r.read());
+
+  int state;
+
+  //LED getState
+  m_led4.on(); //Turn led on
+  state = m_led4.getState();
+  Serial.println("The led state of 4 should now be 1 (HIGH/on) -> " + state);
+  m_led4.off();
+  state = m_led4.getState();  
+  Serial.println("The led state of 4 should now be 0 (LOW/off) -> " + state);
+}
 
 void loop(){
   //RHEOSTAT:
